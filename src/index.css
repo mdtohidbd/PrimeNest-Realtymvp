@@ -168,7 +168,7 @@
 
   /* Property Card Styles */
   .property-card {
-    @apply relative overflow-hidden cursor-pointer group;
+    @apply relative overflow-hidden cursor-pointer;
   }
 
   .property-card-image {
@@ -256,7 +256,7 @@
 
   /* Category Card */
   .category-card {
-    @apply relative h-64 md:h-80 overflow-hidden cursor-pointer group;
+    @apply relative h-64 md:h-80 overflow-hidden cursor-pointer;
   }
 
   .category-card-overlay {
