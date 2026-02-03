@@ -1,168 +1,105 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Bed, Bath, Car } from "lucide-react";
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
-import property4 from "@/assets/property-4.jpg";
-
-const properties = [
-  {
-    id: 1,
-    image: property1,
-    location: "CAMBERWELL",
-    address: "3 Sycamore Street",
-    type: "House",
-    beds: 4,
-    baths: 3,
-    cars: 2,
-    featured: true,
-  },
-  {
-    id: 2,
-    image: property2,
-    location: "KEW",
-    address: "24 Florence Avenue",
-    type: "Residential",
-    beds: null,
-    baths: null,
-    cars: null,
-    featured: true,
-  },
-  {
-    id: 3,
-    image: property3,
-    location: "HAWTHORN",
-    address: "45 Through Road",
-    type: "House",
-    beds: 3,
-    baths: 2,
-    cars: 1,
-    featured: false,
-  },
-  {
-    id: 4,
-    image: property4,
-    location: "CAMBERWELL",
-    address: "88 Liddiard Street",
-    type: "House",
-    beds: 5,
-    baths: 3,
-    cars: 2,
-    featured: false,
-  },
-];
-
-const PropertyCard = ({ property, index }: { property: typeof properties[0]; index: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`property-card ${property.featured ? "col-span-1 md:col-span-1 aspect-[4/3]" : "aspect-[4/3]"}`}
-    >
-      <img
-        src={property.image}
-        alt={property.address}
-        className="property-card-image"
-      />
-      <div className="property-card-overlay" />
-      
-      {/* Property Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-        <p className="text-white text-xs uppercase tracking-[0.15em] mb-1">{property.location}</p>
-        <p className="text-white text-sm">{property.address}</p>
-      </div>
-    </motion.div>
-  );
-};
+import { Link } from "react-router-dom";
+import PropertyCard from "./PropertyCard";
+import { properties } from "@/data/properties";
 
 const PropertiesSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const featuredProperty = properties[0];
+  const regularProperties = properties.filter(p => p.status === "sale").slice(1, 4);
 
   return (
-    <section id="properties" className="section-padding bg-background">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-heading">Latest Properties</h2>
-          <p className="section-subheading">
-            Welcome to our beautiful homes. Browse through our listings to find your dream home
-          </p>
-        </motion.div>
-
-        {/* Featured Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          {properties.slice(0, 2).map((property, index) => (
-            <PropertyCard key={property.id} property={property} index={index} />
-          ))}
-        </div>
-
-        {/* Regular Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {properties.slice(2).map((property, index) => (
-            <PropertyCard key={property.id} property={property} index={index + 2} />
-          ))}
-          <PropertyCard 
-            property={{
-              id: 5,
-              image: property1,
-              location: "MALVERN",
-              address: "12 Station Road",
-              type: "House",
-              beds: 4,
-              baths: 2,
-              cars: 2,
-              featured: false,
-            }} 
-            index={4} 
-          />
-        </div>
-
-        {/* Property Details Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col items-center gap-4 mt-8"
-        >
-          <div className="text-center">
-            <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground mb-1">CAMBERWELL</p>
-            <p className="text-sm text-foreground mb-2">3 Sycamore Street</p>
-            <div className="flex items-center justify-center gap-4 text-muted-foreground">
-              <span className="property-detail">
-                <Bed className="w-4 h-4" /> 4
-              </span>
-              <span className="property-detail">
-                <Bath className="w-4 h-4" /> 3
-              </span>
-              <span className="property-detail">
-                <Car className="w-4 h-4" /> 2
-              </span>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-primary text-xs uppercase tracking-[0.3em] font-medium mb-4"
+            >
+              Exquisite Collection
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="section-title text-left mb-0"
+            >
+              Featured Properties
+            </motion.h2>
           </div>
-          <button className="btn-outline">
-            See Details
-          </button>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link to="/homes" className="btn-outline">
+              Browse All Properties
+            </Link>
+          </motion.div>
+        </div>
 
-        {/* Browse All Button */}
-        <div className="text-center mt-12">
-          <button className="btn-ghost">
-            Browse All Properties
-          </button>
+        {/* Featured Large Property */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-8 group relative aspect-[16/9] overflow-hidden"
+          >
+            <Link to={`/property/${featuredProperty.id}`}>
+              <img
+                src={featuredProperty.image}
+                alt={featuredProperty.address}
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+              <div className="absolute bottom-10 left-10 text-white">
+                <p className="text-[10px] tracking-[0.3em] uppercase mb-2 opacity-80">{featuredProperty.location}</p>
+                <h3 className="text-3xl md:text-4xl font-serif mb-4 uppercase tracking-wider">{featuredProperty.address}</h3>
+                <button className="text-[10px] tracking-[0.3em] uppercase border-b border-white/50 pb-1 group-hover:border-white transition-all">
+                  See Details
+                </button>
+              </div>
+            </Link>
+          </motion.div>
+
+          <div className="lg:col-span-4 flex flex-col justify-center space-y-8 p-6 md:p-12 bg-secondary/30">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h4 className="text-2xl font-serif mb-4 uppercase tracking-widest">{featuredProperty.address}</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                {featuredProperty.description}
+              </p>
+              <Link to={`/property/${featuredProperty.id}`} className="text-xs uppercase tracking-[0.2em] font-bold border-b-2 border-primary pb-1 hover:text-accent hover:border-accent transition-colors">
+                View Listing
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Property Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {regularProperties.map((property, index) => (
+            <motion.div
+              key={property.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <PropertyCard {...property} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
