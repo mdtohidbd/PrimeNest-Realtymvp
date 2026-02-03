@@ -2,87 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Premium Real Estate Design System */
 
 @layer base {
   :root {
+    /* Core Colors - Luxury Neutral Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Charcoal */
+    --primary: 0 0% 12%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Warm Cream */
+    --secondary: 40 30% 96%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft Gray */
+    --muted: 40 20% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Warm Gold */
+    --accent: 35 45% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 20% 90%;
+    --input: 40 20% 90%;
+    --ring: 0 0% 12%;
 
-    --radius: 0.5rem;
+    --radius: 0px;
+
+    /* Custom Design Tokens */
+    --cream: 40 30% 97%;
+    --beige: 35 25% 93%;
+    --charcoal: 0 0% 20%;
+    --gold: 35 45% 50%;
+    --warm-gray: 30 10% 60%;
+
+    /* Typography */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+
+    /* Spacing */
+    --section-padding: 6rem;
+
+    /* Shadows */
+    --shadow-subtle: 0 2px 20px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.06);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 35 45% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 80%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,7 +121,200 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-medium tracking-wide;
+  }
+}
+
+@layer components {
+  /* Navigation Styles */
+  .nav-link {
+    @apply relative text-sm uppercase tracking-[0.2em] text-foreground/80 transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-0 bg-foreground transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link:hover {
+    @apply text-foreground;
+  }
+
+  /* Section Heading Styles */
+  .section-heading {
+    font-family: var(--font-serif);
+    @apply text-3xl md:text-4xl lg:text-5xl font-normal tracking-[0.1em] uppercase text-center;
+    letter-spacing: 0.15em;
+  }
+
+  .section-subheading {
+    @apply text-muted-foreground text-center mt-4 max-w-xl mx-auto text-sm md:text-base leading-relaxed;
+  }
+
+  /* Property Card Styles */
+  .property-card {
+    @apply relative overflow-hidden cursor-pointer group;
+  }
+
+  .property-card-image {
+    @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+  }
+
+  .property-card:hover .property-card-image {
+    @apply scale-105;
+  }
+
+  .property-card-overlay {
+    @apply absolute inset-0 bg-black/0 transition-all duration-500;
+  }
+
+  .property-card:hover .property-card-overlay {
+    @apply bg-black/10;
+  }
+
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-3 text-sm uppercase tracking-[0.15em] transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary/90;
+  }
+
+  .btn-outline {
+    @apply border border-foreground/20 bg-transparent text-foreground px-8 py-3 text-sm uppercase tracking-[0.15em] transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    @apply border-foreground bg-foreground text-background;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-foreground/70 px-6 py-2 text-xs uppercase tracking-[0.2em] transition-all duration-300 border-b border-transparent;
+  }
+
+  .btn-ghost:hover {
+    @apply text-foreground border-foreground;
+  }
+
+  /* Icon Button */
+  .icon-btn {
+    @apply w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center transition-all duration-300;
+  }
+
+  .icon-btn:hover {
+    @apply border-foreground bg-foreground text-background;
+  }
+
+  /* Agent Card */
+  .agent-card {
+    @apply text-center;
+  }
+
+  .agent-image {
+    @apply w-full aspect-[3/4] object-cover grayscale-[20%] transition-all duration-500;
+  }
+
+  .agent-card:hover .agent-image {
+    @apply grayscale-0 scale-[1.02];
+  }
+
+  /* Input Styles */
+  .input-luxury {
+    @apply w-full bg-secondary/50 border-0 px-4 py-4 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-foreground/20 transition-all;
+  }
+
+  /* Logo Style */
+  .logo-text {
+    font-family: var(--font-serif);
+    @apply text-2xl tracking-[0.3em] font-light;
+  }
+
+  /* Social Icons */
+  .social-icon {
+    @apply w-8 h-8 flex items-center justify-center text-foreground/60 transition-colors duration-300;
+  }
+
+  .social-icon:hover {
+    @apply text-foreground;
+  }
+
+  /* Category Card */
+  .category-card {
+    @apply relative h-64 md:h-80 overflow-hidden cursor-pointer group;
+  }
+
+  .category-card-overlay {
+    @apply absolute inset-0 bg-black/40 flex flex-col items-center justify-center transition-all duration-500;
+  }
+
+  .category-card:hover .category-card-overlay {
+    @apply bg-black/50;
+  }
+
+  /* Search Bar */
+  .search-input {
+    @apply bg-white/10 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/60 px-6 py-4 text-sm focus:outline-none focus:border-white/50 transition-all;
+  }
+
+  /* Footer */
+  .footer-link {
+    @apply text-sm text-foreground/70 hover:text-foreground transition-colors duration-300;
+  }
+
+  /* Testimonial */
+  .testimonial-quote {
+    @apply text-base md:text-lg leading-relaxed text-muted-foreground italic;
+  }
+
+  /* Property Details */
+  .property-detail {
+    @apply flex items-center gap-1 text-xs text-muted-foreground;
+  }
+
+  /* Scroll Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .letter-spacing-wide {
+    letter-spacing: 0.2em;
+  }
+
+  .section-padding {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
   }
 }
