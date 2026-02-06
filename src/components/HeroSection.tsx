@@ -63,7 +63,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div ref={textRef}>
           <h1 className="text-white text-sm md:text-base uppercase tracking-[0.3em] mb-12 font-medium">
-            A—Z Real Estate Agency
+            PrimeNest Realty
           </h1>
 
           {/* Search Bar */}

@@ -44,9 +44,9 @@ const TestimonialSection = () => {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div className="text-center p-8 bg-black/40 backdrop-blur-sm border border-white/20">
-                  <span className="text-white logo-text text-3xl">
-                    A<span className="inline-block w-16 h-px bg-white mx-2 align-middle" />Z
-                  </span>
+                  <div className="text-white logo-text text-xl md:text-2xl font-bold tracking-widest">
+                    PrimeNest Realty
+                  </div>
                   <p className="text-white/80 text-[8px] uppercase tracking-[0.4em] mt-4">
                     Real Estate Agency
                   </p>

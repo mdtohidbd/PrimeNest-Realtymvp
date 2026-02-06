@@ -86,7 +86,7 @@ const About = () => {
 
                     <div className="space-y-8 text-muted-foreground leading-relaxed text-sm md:text-base about-text">
                         <p>
-                            The A—Z Real Estate Agency was born of a simple, yet radical idea: that real estate should be exclusively focused on the customer, providing a more personal and tailored approach for every client.
+                            The PrimeNest Realty team was born of a simple, yet radical idea: that real estate should be exclusively focused on the customer, providing a more personal and tailored approach for every client.
                         </p>
                         <p>
                             Our team of <span className="text-foreground border-b border-foreground/30 font-medium">real estate agents in Hawthorn & Camberwell</span> ensure the highest standard of customer service and are easily available, ready to negotiate a sale on the open market or in a discreet and confidential manner off-market.
@@ -95,10 +95,10 @@ const About = () => {
                             The boutique structure of our agency reflects the core values of our business model, where Relationships, Excellence and Authenticity are at the core of everything we do. To achieve and even exceed the standards we set ourselves, we limit the ratio of properties we handle as a team at any one time. This well-considered design ensures that we have the optimal resources to fully dedicate ourselves to each campaign.
                         </p>
                         <p>
-                            Since entering the Boroondara market the A—Z team have sold in excess of $500+ million worth of property. The team's philosophy has always been to provide a personalised experience with the main objective to consistently achieve the best possible outcome for our clients. With this, to date the team has been able to achieve a combined $13.5+ million above client's expectations.
+                            Since entering the Boroondara market the PrimeNest Realty team have sold in excess of $500+ million worth of property. The team's philosophy has always been to provide a personalised experience with the main objective to consistently achieve the best possible outcome for our clients. With this, to date the team has been able to achieve a combined $13.5+ million above client's expectations.
                         </p>
                         <p>
-                            A—Z streamline the entire selling process by setting out a step-by-step plan to help guide you through the process. Every step can be taken care of; from organising the Contract of Sale; to project managing any pre-sale work, through to booking you in with one of our property stylists. Everything can be taken care of starting from here.
+                            PrimeNest Realty streamline the entire selling process by setting out a step-by-step plan to help guide you through the process. Every step can be taken care of; from organising the Contract of Sale; to project managing any pre-sale work, through to booking you in with one of our property stylists. Everything can be taken care of starting from here.
                         </p>
                     </div>
                 </section>

@@ -42,8 +42,8 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link to="/" className="flex flex-col items-center">
-          <div className={`logo-text ${textColor}`}>
-            A <span className="mx-2">—</span><span className="mx-2">—</span><span className="mx-2">—</span> Z
+          <div className={`logo-text ${textColor} text-xl md:text-2xl font-bold tracking-widest`}>
+            PrimeNest Realty
           </div>
           <span className={`text-[8px] tracking-[0.4em] mt-1 uppercase transition-colors ${isScrolled ? "text-foreground/60" : "text-white/80"}`}>Real Estate Agency</span>
         </Link>

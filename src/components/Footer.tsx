@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-white/10 pb-12 mb-12">
           <div className="mb-8 md:mb-0">
             <Link to="/" className="flex flex-col">
-              <div className="logo-text text-white text-3xl">
-                A <span className="mx-2">—</span><span className="mx-2">—</span><span className="mx-2">—</span> Z
+              <div className="logo-text text-white text-2xl md:text-3xl font-bold tracking-widest">
+                PrimeNest Realty
               </div>
               <span className="text-[10px] tracking-[0.4em] text-white/40 mt-1 uppercase">Real Estate Agency</span>
             </Link>
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center md:text-left text-[10px] tracking-widest text-white/20 uppercase">
-          &copy; Copyright {new Date().getFullYear()} @ A—Z Real Estate Agency
+          &copy; Copyright {new Date().getFullYear()} @ PrimeNest Realty
         </div>
       </div>
     </footer>
