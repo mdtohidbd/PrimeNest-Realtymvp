@@ -66,13 +66,13 @@ const Contact = () => {
                     <div className="flex flex-col sm:flex-row justify-center w-full max-w-2xl mx-auto gap-4">
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="flex-1 bg-white/5 border border-white/20 text-white py-6 text-lg tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm"
+                            className="flex-1 bg-black/40 border border-white/50 text-white py-6 text-lg tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md"
                         >
                             Get in Touch
                         </button>
                         <a
                             href="tel:0398151124"
-                            className="flex-1 bg-white/5 border border-white/20 text-white py-6 text-lg tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm flex items-center justify-center"
+                            className="flex-1 bg-black/40 border border-white/50 text-white py-6 text-lg tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md flex items-center justify-center"
                         >
                             Call Us
                         </a>
